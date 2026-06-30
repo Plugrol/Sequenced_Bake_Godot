@@ -182,18 +182,18 @@ class SequencedBakeOperator(bpy.types.Operator):
             "SCULPT": props.sequenced_bake_sculpt,
         }
 
-        if props.frame_mode == 'CURRENT':
-            self._frames = [scene.frame_current]
-        else:
-            step = max(1, props.frame_step)
+        #if props.frame_mode == 'CURRENT':
+        self._frames = [scene.frame_current] # make current always the selected option
+        # else:
+        #    step = max(1, props.frame_step)
 
-            self._frames = list(
-                range(
-                    scene.frame_start,
-                    scene.frame_end + 1,
-                    step
-                )
-            )
+        #    self._frames = list(
+        #        range(
+        #            scene.frame_start,
+        #            scene.frame_end + 1,
+        #            step
+        #        )
+        #    )
 
         # Precompute sculpt normalization bounds
         self._sculpt_normalization_bounds = None
@@ -347,9 +347,8 @@ class SequencedBakeOperator(bpy.types.Operator):
             connect_occlusion_node(mat)
 
         bake_dir = os.path.join(
-            bpy.path.abspath(props.sequenced_bake_output_path),
-            f"{self._obj.name}_{mat.name}_{bake_type}"
-        )
+            bpy.path.abspath(props.sequenced_bake_output_path)
+        ) # Remove extra dir
         os.makedirs(bake_dir, exist_ok=True)
 
         # Color space override for data maps

@@ -182,15 +182,15 @@ def draw_sequenced_bake_ui(layout, props):
         scene = bpy.context.scene
 
         # frame range
-        frame_box = col.box()
-        frame_box.label(
-            text=f"Frame Range: {scene.frame_start} : {scene.frame_end} : {scene.frame_end - scene.frame_start + 1}"
-        )
+        # frame_box = col.box()
+        # frame_box.label(
+        #    text=f"Frame Range: {scene.frame_start} : {scene.frame_end} : {scene.frame_end - scene.frame_start + 1}"
+        #)
 
-        row = frame_box.row(align=True)
-        row.prop(scene, "frame_start", text="Start")
-        row.prop(scene, "frame_end", text="End")
-        row.prop(scene, "frame_current", text="Current")
+        #row = frame_box.row(align=True)
+        #row.prop(scene, "frame_start", text="Start") # remove frame options
+        #ow.prop(scene, "frame_end", text="End")
+        #row.prop(scene, "frame_current", text="Current")
 
         row = frame_box.row(align=True)
 
