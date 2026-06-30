@@ -559,7 +559,7 @@ def bake_frame(bake_type, props, frame, obj, mat, image_node, image, output_dir,
 
         filepath = os.path.join(
             output_dir,
-            f"{bake_type}.{props.sequenced_bake_image_format.lower()}" # use bake type as name and lower the extension
+            f"{bake_type}-{mat.name}.{props.sequenced_bake_image_format}".lower() # use bake type as name and lower the extension
         )
 
         image.save_render(filepath)

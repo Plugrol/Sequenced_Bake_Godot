@@ -182,7 +182,7 @@ def draw_sequenced_bake_ui(layout, props):
         scene = bpy.context.scene
 
         # frame range
-        # frame_box = col.box()
+        frame_box = col.box()
         # frame_box.label(
         #    text=f"Frame Range: {scene.frame_start} : {scene.frame_end} : {scene.frame_end - scene.frame_start + 1}"
         #)
@@ -347,16 +347,16 @@ def draw_sequenced_bake_ui(layout, props):
         col.prop(props, "material_mode")
         col.prop(props, "frame_mode")
 
-        if props.frame_mode == 'SEQUENCE':
-            col.prop(props, "frame_step")
+        # if props.frame_mode == 'SEQUENCE':
+        #    col.prop(props, "frame_step")
 
-        if props.frame_mode == 'CURRENT':
-            col.label(text="Only current frame will be baked", icon='INFO')
-        else:
-            col.label(
-                text=f"Frames: {bpy.context.scene.frame_start} → {bpy.context.scene.frame_end} (step {props.frame_step})",
-                icon='TIME'
-            )
+        #if props.frame_mode == 'CURRENT':
+        col.label(text="Only current frame will be baked", icon='INFO')
+        #else:
+            #col.label(
+            #    text=f"Frames: {bpy.context.scene.frame_start} → {bpy.context.scene.frame_end} (step {props.frame_step})",
+            #    icon='TIME'
+            #)
 
         col.label(text="Material Output Path:")
         col.prop(props, "sequenced_bake_output_path")
